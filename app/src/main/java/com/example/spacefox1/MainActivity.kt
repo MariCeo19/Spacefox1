@@ -28,6 +28,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.textInputServiceFactory
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -54,14 +55,13 @@ class MainActivity : ComponentActivity() {
 
 
 
-
+@Preview
 @Composable
 fun PlanoDeFundo(){
       Image(
           painter = painterResource(id = R.drawable.papeldeparede1),
           contentDescription = null,
-          contentScale = ContentScale.Crop,
-
+          contentScale = ContentScale.Crop
       )
     Cabecalho()
     Rodape()
@@ -72,61 +72,64 @@ fun PlanoDeFundo(){
 fun Rodape() {
     Column(
         verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally,
+        horizontalAlignment = Alignment.Start,
         modifier = Modifier
-            .padding(bottom = 40.dp)
+            .padding(bottom = 40.dp, start = 20.dp)
+            .fillMaxSize()
        
     ) {
-    Contatos(
-        painter = painterResource(id = R.drawable.telefonerosa),
-        text = stringResource(R.string.telefone)
-    )
-    Contatos(
-        painter = painterResource(id = R.drawable.emailrosa),
-        text = stringResource(R.string.meu_email)
-    )
-    Contatos(
-        painter = painterResource(id = R.drawable._coneinsta)  ,
-        text = stringResource(R.string.meu_instagram)
-    )
-        
-
+        Contatos(
+            painter = painterResource(id = R.drawable.telefonerosa),
+            text = stringResource(R.string.telefone)
+        )
+        Contatos(
+            painter = painterResource(id = R.drawable.emailrosa),
+            text = stringResource(R.string.meu_email)
+        )
+        Contatos(
+            painter = painterResource(id = R.drawable.iconeinstarosaa)  ,
+            text = stringResource(R.string.meu_instagram)
+        )
     }
 }
 
 
 
 @Composable
-    fun Contatos(painter: Painter, text:String){
+fun Contatos(painter: Painter, text:String){
 
-
-    Row() {
+    Row(
+        modifier = Modifier
+            .padding(bottom = 10.dp)
+    ) {
         Image(
-            painter = painterResource(id = R.drawable.telefonerosa) ,
+            painter = painter ,
             contentDescription = null,
             modifier = Modifier
                 .size(40.dp)
                 .clip(CircleShape)
-
         )
          Text(
              text = text,
              fontSize = 25.sp,
-             color = Color.LightGray,
+             color = Color.White,
              textAlign = TextAlign.Left,
+             fontFamily = FontFamily.Serif,
              modifier = Modifier
-                 .fillMaxSize()
-
+                 .padding(start = 10.dp)
          )
     }
 
-    }
+}
 
 @Composable
 fun Cabecalho() {
     Column(
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxSize()
+
     ) {
         Image(
             painter = painterResource(id = R.drawable._cone),
