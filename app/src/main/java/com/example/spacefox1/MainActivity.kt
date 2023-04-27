@@ -111,12 +111,12 @@ fun Contatos(painter: Painter, text:String){
         )
          Text(
              text = text,
-             fontSize = 25.sp,
-             color = Color.White,
+             fontSize = 22.sp,
+             color = Color.DarkGray,
              textAlign = TextAlign.Left,
-             fontFamily = FontFamily.Serif,
+             fontFamily = FontFamily.Monospace,
              modifier = Modifier
-                 .padding(start = 10.dp)
+                 .padding(start = 9.dp)
          )
     }
 
@@ -143,7 +143,8 @@ fun Cabecalho() {
             text = "Mariana Thayza",
             fontSize = 30.sp,
             color = Color.White,
-            fontWeight = FontWeight.Medium
+            fontWeight = FontWeight.Medium,
+            fontFamily = FontFamily.Cursive
 
         )
         Text(
